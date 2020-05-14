@@ -7,7 +7,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> todoList = [];
+  List<String> todoList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Todo List'),
       ),
-      body: ListView(
-        children: todoList,
+      body: ListView.builder(
+        itemCount: todoList.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text('${todoList[index]}'),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _goToAddPage,
@@ -28,14 +33,8 @@ class _HomePageState extends State<HomePage> {
 
   void addTodoItem(String text) {
     setState(() {
-      todoList += [_createTodoListTile(text)];
+      todoList.add(text);
     });
-  }
-
-  ListTile _createTodoListTile(String title) {
-    return ListTile(
-      title: Text(title),
-    );
   }
 
   void _goToAddPage() async {
