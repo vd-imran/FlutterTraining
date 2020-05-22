@@ -65,10 +65,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _showError() {
-    temp = '';
-    range = '';
-    desc = 'Error loading 🙁';
-    loc = '';
+    setState(() {
+      temp = '';
+      range = '';
+      desc = 'Error loading 🙁';
+      loc = '';
+    });
   }
 
   @override
