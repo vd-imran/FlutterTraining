@@ -17,7 +17,6 @@ class WeatherAPIService {
     }
   }
 
-// A function that converts a response body into a List<Photo>.
   static Weather parse(String responseBody) {
     final parsed = jsonDecode(responseBody);
     return Weather.fromJson(parsed);
