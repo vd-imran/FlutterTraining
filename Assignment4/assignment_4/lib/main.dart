@@ -52,9 +52,11 @@ class _HomePageState extends State<HomePage> {
           loc = '${weather.city}\n${weather.country}';
         });
       } else {
+        print('weather null');
         _showError();
       }
     } catch (e) {
+      print(e);
       _showError();
     }
     setState(() {
