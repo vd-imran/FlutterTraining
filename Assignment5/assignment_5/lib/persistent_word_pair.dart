@@ -1,11 +1,11 @@
 import 'package:english_words/english_words.dart';
 import 'package:sqflite/sqflite.dart';
 
-String _tableName = 'WordPair';
-String _columnId = 'id';
-String _columnFirst = 'first';
-String _columnSecond = 'second';
-String _columnSaved = 'saved';
+const String _tableName = 'WordPair';
+const String _columnId = 'id';
+const String _columnFirst = 'first';
+const String _columnSecond = 'second';
+const String _columnSaved = 'saved';
 
 class WordPairData {
   int id;
