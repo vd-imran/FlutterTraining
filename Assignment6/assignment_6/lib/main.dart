@@ -47,7 +47,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _refresh();
+    Future.delayed(Duration.zero).then((_) {
+      _refresh();
+    });
   }
 
   @override
