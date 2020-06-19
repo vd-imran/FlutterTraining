@@ -1,6 +1,6 @@
 # assignment7
 
-VenD flutter training Assignment 7 - (Complete 30 TODO)
+VenD flutter training Assignment 7 - (Complete 30 TODO) + Bonus Assignment
 
 ## Getting Started
 
