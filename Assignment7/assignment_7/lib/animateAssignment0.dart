@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 /**
  * This part of assignment cover explicit animation part.
  * APP without animations
@@ -23,6 +22,7 @@ class _LogoAppState extends State<LogoApp> {
          * where marginValue can have following sample values {10, 20, 30, 50}
          */
         // Enter your code here
+        margin: EdgeInsets.symmetric(vertical: 20),
 
         /**
          * TODO Enter the value of height for flutter logo
@@ -30,7 +30,7 @@ class _LogoAppState extends State<LogoApp> {
          * height: someValue
          */
         // Enter your code here
-
+        height: 100,
 
         /**
          * TODO Enter the value of width for flutter logo
@@ -38,7 +38,7 @@ class _LogoAppState extends State<LogoApp> {
          * width: someValue
          */
         // Enter your code here
-
+        width: 200,
 
         child: FlutterLogo(),
       ),
