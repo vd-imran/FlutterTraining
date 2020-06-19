@@ -11,7 +11,7 @@ double randomBorderRadius() {
    * Random().nextDouble() * 64
    */
   // replace the return below with your code
-  return 0;
+  return Random().nextDouble() * 64;
 }
 
 double randomMargin() {
@@ -21,7 +21,7 @@ double randomMargin() {
    * Random().nextDouble() * 64
    */
   // replace the return below with your code
-  return 0;
+  return Random().nextDouble() * 64;
 }
 
 Color randomColor() {
@@ -31,7 +31,7 @@ Color randomColor() {
    * Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
    */
   // replace the return below with your code
-  return null;
+  return Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
 }
 
 class AnimatedContainerDemo extends StatefulWidget {
@@ -62,9 +62,11 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
          * borderRadius = randomBorderRadius();
          * margin = randomMargin();
          */
-          // code here
+        // code here
+        color = randomColor();
+        borderRadius = randomBorderRadius();
+        margin = randomMargin();
       });
-
     } catch (e, s) {
       print(s);
     }
@@ -88,7 +90,8 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                    * HINT: one possible solution can be
                    * margin: EdgeInsets.all(margin*4),
                    */
-                   // code here
+                  // code here
+                  margin: EdgeInsets.all(margin * 4),
                   decoration: BoxDecoration(
                     /**
                      * TODO use the value color object as color paramter
@@ -96,13 +99,14 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                      * color: color,
                      */
                     // code here
+                    color: color,
                     /**
                      * TODO use the value of borderRadius for applying radius to circular borders
                      * HINT: one possible solution can be
                      * borderRadius: BorderRadius.circular(borderRadius),
                      */
                     //code here
-
+                    borderRadius: BorderRadius.circular(borderRadius),
                   ),
                   duration: _duration,
                 ),
@@ -118,7 +122,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                  * HINT: you can use following logic
                  * onPressed: () => change(),
                  */
-
+                onPressed: () => change(),
               ),
             ],
           ),
