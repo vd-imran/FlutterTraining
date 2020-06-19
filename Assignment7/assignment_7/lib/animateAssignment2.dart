@@ -23,7 +23,8 @@ class AnimatedLogo extends AnimatedWidget {
          * HINT: use following code.
          * opacity: _opacityTween.evaluate(animation),
          */
-          // code here
+        // code here
+        opacity: _opacityTween.evaluate(animation),
         child: Container(
           margin: EdgeInsets.symmetric(vertical: 10),
           /**
@@ -32,12 +33,14 @@ class AnimatedLogo extends AnimatedWidget {
            * height: _sizeTween.evaluate(animation),
            */
           // code here
+          height: _sizeTween.evaluate(animation),
           /**
            * TODO add sizeTween evaluation to width value
            * HINT use following code
            * width: _sizeTween.evaluate(animation),
            */
-           //code here
+          //code here
+          width: _sizeTween.evaluate(animation),
           child: FlutterLogo(),
         ),
       ),
