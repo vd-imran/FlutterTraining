@@ -44,10 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
           child: TweenAnimationBuilder(
-            /**
+        /**
              * TODO pass targetValue as the initial value for end parameter to tween object.
              */
-        tween: Tween<double>(begin: 0, end: 0),
+        tween: Tween<double>(begin: 0, end: targetValue),
         duration: Duration(seconds: 4),
         builder: (context, size, _) {
           return Transform.rotate(
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                * angle: size % (2 * math.pi),
                * */
               // code here
-
+              angle: size % (2 * math.pi),
               child: IconButton(
                 /**
                  * TODO use size to manipulate iconsize
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                  * iconSize: size % (2 * math.pi)
                  */
                 // code here
-
+                iconSize: 100 + (size % (2 * math.pi)),
                 icon: Icon(Icons.rotate_right),
                 /**
                  * Following code will get triggered when user click the icon object
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                      * HINT: one possible solution for the problem is
                      * targetValue = targetValue == 360 ? 60 : 360;
                      */
-
+                    targetValue = targetValue == 360 ? 60 : 360;
                   });
                 },
               ));
