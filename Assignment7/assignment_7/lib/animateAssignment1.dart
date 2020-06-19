@@ -17,7 +17,8 @@ class LogoApp extends StatefulWidget {
  * HINT: by using following code
  * with SingleTickerProviderStateMixin
  */
-class _LogoAppState extends State<LogoApp>  /* code here*/ {
+class _LogoAppState extends State<LogoApp> /* code here*/ with
+    SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
 
@@ -42,6 +43,10 @@ class _LogoAppState extends State<LogoApp>  /* code here*/ {
      * controller = AnimationController(duration: ... , vsync: ...)
      */
     //controller = // code here
+    controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
 
     // #docregion addListener
     try {
@@ -52,7 +57,8 @@ class _LogoAppState extends State<LogoApp>  /* code here*/ {
             // The state that has changed here is the animation object’s value.
           });
           // #docregion addListener
-        })..addStatusListener((status) {
+        })
+        ..addStatusListener((status) {
           /**
            * TODO check if animation status is completed
            * HINT you can apply following logic
@@ -61,12 +67,12 @@ class _LogoAppState extends State<LogoApp>  /* code here*/ {
            * }
            */
           // replace the condition below with your code
-          if (true) {
+          if (status == AnimationStatus.completed) {
             /**
              * TODO call controller.reverse()
              */
             // code here
-
+            controller.reverse();
           }
           /**
            * TODO check else if animation status is completed
@@ -77,11 +83,12 @@ class _LogoAppState extends State<LogoApp>  /* code here*/ {
            */
 
           // replace the condition below with your code
-          else if (true) {
+          else if (status == AnimationStatus.dismissed) {
             /**
              * TODO call controller.forward()
              */
-              // code here
+            // code here
+            controller.forward();
           }
         });
     } catch (e, s) {
@@ -90,7 +97,8 @@ class _LogoAppState extends State<LogoApp>  /* code here*/ {
     /**
      * TODO call controller.forward()
      */
-      // code here
+    // code here
+    controller.forward();
   }
 
   @override
@@ -111,10 +119,12 @@ class _LogoAppState extends State<LogoApp>  /* code here*/ {
      * TODO dispose controller
      * by calling controller.dispose()
      */
-      // code here
+    // code here
+    controller.dispose();
     /**
      * TODO call supper to dispose
      */
-      //code here
+    //code here
+    super.dispose();
   }
 }
