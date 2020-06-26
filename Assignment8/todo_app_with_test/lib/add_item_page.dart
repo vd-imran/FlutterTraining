@@ -1,29 +1,25 @@
 import 'package:flutter/material.dart';
 
-class AddItemPage extends StatefulWidget {
-  @override
-  _AddItemPageState createState() => _AddItemPageState();
-}
+import 'package:provider/provider.dart';
 
-class _AddItemPageState extends State<AddItemPage> {
-  String text;
+import 'todo_provider.dart';
 
+class AddItemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TodoProvider>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(
-          onPressed: () {
-            Navigator.pop(context, text);
-          },
-        ),
         title: Text('Add a new task'),
       ),
       body: TextField(
         autofocus: true,
-        onChanged: (newValue) {
-          text = newValue;
+        onSubmitted: (text) {
+          provider.addTodo(text);
+          Navigator.pop(context);
         },
+        textInputAction: TextInputAction.done,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(13),
           labelText: 'Enter something to do...',
