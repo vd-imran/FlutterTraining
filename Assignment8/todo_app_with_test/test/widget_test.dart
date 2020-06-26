@@ -11,20 +11,27 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:todoappwithtest/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Todo application test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    final sampleTodoText = "Test todo item 1";
+
+    // Verify our sampleTodoText doesn't exist yet.
+    expect(find.text(sampleTodoText), findsNothing);
 
     // Tap the '+' icon and trigger a frame.
     await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Enter sampleTodoText into text field and tap back.
+    expect(find.byType(TextField), findsOneWidget);
+    await tester.enterText(find.byType(TextField), sampleTodoText);
+
+    await tester.tap(find.byType(BackButton));
+    await tester.pumpAndSettle();
+
+    // Verify that sampleTodoText has been added.
+    expect(find.text(sampleTodoText), findsOneWidget);
   });
 }
