@@ -28,10 +28,41 @@ void main() {
     expect(find.byType(TextField), findsOneWidget);
     await tester.enterText(find.byType(TextField), sampleTodoText);
 
-    await tester.tap(find.byType(BackButton));
+    // Back out without tapping done.
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+
+    // Verify that sampleTodoText has not been added.
+    expect(find.text(sampleTodoText), findsNothing);
+
+    // Tap the '+' icon and trigger a frame again.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpAndSettle();
+
+    // Enter sampleTodoText into text field and tap back.
+    expect(find.byType(TextField), findsOneWidget);
+    await tester.enterText(find.byType(TextField), sampleTodoText);
+
+    // Tapping done on keyboard
+    await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
 
     // Verify that sampleTodoText has been added.
     expect(find.text(sampleTodoText), findsOneWidget);
+
+    // Tap the '+' icon and trigger a frame again.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpAndSettle();
+
+    // Enter sampleTodoText into text field and tap back.
+    expect(find.byType(TextField), findsOneWidget);
+    await tester.enterText(find.byType(TextField), sampleTodoText);
+
+    // Tapping done on keyboard
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+
+    // Verify that sampleTodoText has been added twice.
+    expect(find.text(sampleTodoText), findsNWidgets(2));
   });
 }
