@@ -40,20 +40,20 @@ public class MainActivity extends FlutterActivity {
         }
       }
     );
+  }
 
-    private performVibration(long duration) {
-      Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+  private void performVibration(long duration) {
+    Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        v.vibrate(
-                VibrationEffect.createOneShot(
-                        duration,
-                        VibrationEffect.DEFAULT_AMPLITUDE
-                )
-        );
-      } else {
-        v.vibrate(duration);
-      }
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+      v.vibrate(
+              VibrationEffect.createOneShot(
+                      duration,
+                      VibrationEffect.DEFAULT_AMPLITUDE
+              )
+      );
+    } else {
+      v.vibrate(duration);
     }
   }
 

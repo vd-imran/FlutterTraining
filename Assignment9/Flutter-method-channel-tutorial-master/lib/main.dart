@@ -62,19 +62,24 @@ class PlatformTestBodyState extends State<PlatformTestBody> {
   Future<Null> doNativeSuff() async {
     String _message;
 
-
     /**
      * TODO Handle the code below from line 81-86 in try-catch.
      * TODO assign an appropriate value to result in catch.
      */
 
-          final String result = null;
-          /**
-           * TODO use platformMethodChannel to invoke vibrateDevice methode.
-           * TODO assign the return from platformMethodChannel to variable "$result"
-           */
-          _message = result;
-          print(result);
+    try {
+      final String result =
+          await platformMethodChannel.invokeMethod('vibrateDevice');
+      /**
+       * TODO use platformMethodChannel to invoke vibrateDevice methode.
+       * TODO assign the return from platformMethodChannel to variable "$result"
+       */
+      _message = result;
+      print(result);
+    } on PlatformException catch (e) {
+      print(e.toString());
+      _message = "Sorry, failed to virbrate :(";
+    }
 
     setState(() {
       nativeMessage = _message;
