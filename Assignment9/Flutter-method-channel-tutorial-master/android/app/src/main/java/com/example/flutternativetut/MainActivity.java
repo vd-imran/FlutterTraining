@@ -33,10 +33,28 @@ public class MainActivity extends FlutterActivity {
             /**
              * TODO you have to write platform specific code to vibrate the android device
              */
+            long duration = 2500L;
+            performVibration(duration);
+            result.success("Vibrated device for: " + duration + "ms");
           }
         }
       }
     );
+
+    private performVibration(long duration) {
+      Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        v.vibrate(
+                VibrationEffect.createOneShot(
+                        duration,
+                        VibrationEffect.DEFAULT_AMPLITUDE
+                )
+        );
+      } else {
+        v.vibrate(duration);
+      }
+    }
   }
 
 }
