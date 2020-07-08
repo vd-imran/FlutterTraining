@@ -1,6 +1,6 @@
-# randomutils
+# Random Utils
 
-A new Flutter package.
+Simple dart package that provides useful utility functions to make everyday coding simple.
 
 ## Getting Started
 
