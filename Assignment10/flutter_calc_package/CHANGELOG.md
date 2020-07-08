@@ -1,3 +1,3 @@
-## [0.0.1] - 8 July, 2020
+## [1.0.0]
 
-* Provides utility functions for a calculator
+* First Release.
