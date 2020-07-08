@@ -29,4 +29,8 @@ class Utils {
   static String removeWhiteSpace(String str) {
     return str.replaceAll(new RegExp(r"\s+"), "");
   }
+
+  static bool isWhiteSpaceOrEmptyOrNull(String str) {
+    return removeWhiteSpace(str ?? "").isEmpty;
+  }
 }
