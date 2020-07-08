@@ -1,6 +1,7 @@
 name: randomutils
 description: Simple dart package that provides useful utility functions to make everyday coding simple.
 version: 1.0.1
+homepage: 'https://github.com/vd-imran/FlutterTraining/tree/master/Assignment10/random_utils'
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
