@@ -33,4 +33,8 @@ class Utils {
   static bool isWhiteSpaceOrEmptyOrNull(String str) {
     return removeWhiteSpace(str ?? "").isEmpty;
   }
+
+  static String removeNonDigits(String str) {
+    return str.replaceAll(new RegExp(r"\D"), "");
+  }
 }
