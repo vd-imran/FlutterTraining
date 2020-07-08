@@ -4,7 +4,6 @@ import 'dart:math';
 
 Random _random = new Random();
 
-/// A Calculator.
 class Utils {
   static int randomColor() {
     var hex = "0xFF";
@@ -21,5 +20,13 @@ class Utils {
     });
 
     return new String.fromCharCodes(codeUnits);
+  }
+
+  static String condenseWhiteSpace(String str) {
+    return str.replaceAll(new RegExp(r"\s+"), " ").trim();
+  }
+
+  static String removeWhiteSpace(String str) {
+    return str.replaceAll(new RegExp(r"\s+"), "");
   }
 }
