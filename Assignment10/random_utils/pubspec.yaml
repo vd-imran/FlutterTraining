@@ -1,6 +1,6 @@
 name: randomutils
-description: A new Flutter package.
-version: 1.0.0
+description: Simple dart package that provides useful utility functions to make everyday coding simple.
+version: 1.0.1
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
