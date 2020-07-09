@@ -25,6 +25,6 @@ void main() async {
   ); // Prints: true
 
   print(
-    'Check empty string: ${Utils.removeNonDigits('abc1d23    %3# 459./')}',
+    'Extract digits: ${Utils.removeNonDigits('abc1d23    %3# 459./')}',
   ); // Prints: 1233459
 }
